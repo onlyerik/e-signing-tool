@@ -131,7 +131,11 @@ export function RichTextEditor({ content, onChange, onInsertField }: RichTextEdi
           <select
             onChange={(e) => {
               if (e.target.value) {
-                editor.chain().focus().setFontSize(e.target.value).run();
+                editor
+                  .chain()
+                  .focus()
+                  .setMark('textStyle', { fontSize: e.target.value })
+                  .run();
               }
             }}
             className="px-2 py-1 border border-gray-300 rounded text-sm"
